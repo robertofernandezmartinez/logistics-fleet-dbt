@@ -1,0 +1,6 @@
+*.json
+*.env
+.env.save
+target/
+logs/
+dbt_packages/
