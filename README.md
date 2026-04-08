@@ -41,6 +41,12 @@ Robustness is guaranteed through dbt tests:
 - **Data Generation:** Python (Pandas/Numpy)
 - **Visualization:** Looker Studio
 
+
+## 📦 Dependencies & Packages
+This project utilizes the following **dbt packages** to extend functionality:
+* **dbt-utils:** Used for advanced data quality testing (`accepted_range`) and cross-database macros.
+
+
 ## 🚀 How to Run
 1. Clone the repo.
 2. Setup your `profiles.yml` for BigQuery.
