@@ -9,6 +9,32 @@ The project follows the Medallion Architecture to ensure data quality and scalab
 - **Silver (Intermediate):** Business logic integration. Joins trips, vehicles, and drivers tables to calculate the key KPI: `fuel_efficiency_100km`.
 - **Gold (Marts):** Aggregated business metrics for stakeholders (Efficiency by driver and vehicle model).
 
+graph LR
+    subgraph "1. BRONZE (Staging)"
+        A1[(raw_trips)] --> B1[stg_trips]
+        A2[(raw_vehicles)] --> B2[stg_vehicles]
+        A3[(raw_drivers)] --> B3[stg_drivers]
+    end
+
+    subgraph "2. SILVER (Intermediate)"
+        B1 --> C[silver_fleet_performance]
+        B2 --> C
+        B3 --> C
+    end
+
+    subgraph "3. GOLD (Marts)"
+        C --> D[gold_fleet_stats]
+    end
+
+    style A1 fill:#f96,stroke:#333
+    style A2 fill:#f96,stroke:#333
+    style A3 fill:#f96,stroke:#333
+    style B1 fill:#cd7f32,stroke:#333
+    style B2 fill:#cd7f32,stroke:#333
+    style B3 fill:#cd7f32,stroke:#333
+    style C fill:#c0c0c0,stroke:#333
+    style D fill:#ffd700,stroke:#333
+
 ## 🛠️ Tech Stack
 - **Data Transformation:** dbt (Data Build Tool)
 - **Warehouse:** Google BigQuery
