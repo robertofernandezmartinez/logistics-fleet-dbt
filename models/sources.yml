@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw_logistics
+    database: logistics-fleet-dbt 
+    schema: raw_logistics
+    tables:
+      - name: trips
+      - name: vehicles
+      - name: drivers
